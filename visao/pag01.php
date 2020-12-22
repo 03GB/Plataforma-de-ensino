@@ -2,6 +2,15 @@
   require_once('../extensao/header.php');
   include("../_db/Configuracao.inc.php");
 
+  // inicializa a sessão
+session_start();
+ 
+// verifica se o usuário está logado, se não estiver redireciona para a página de login
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
  ?>
 
 

@@ -3,7 +3,7 @@
 session_start();
  
 /*
-verifica se o usuário está logado,se estiver redireciona para a página de boas vindas
+verifica se o usuário está logado
 */
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: pag01.php");

@@ -1,5 +1,15 @@
 <?php
   require_once('../extensao/header.php');
+
+  // inicializa a sessão
+session_start();
+
+// verifica se o usuário está logado, se não estiver redireciona para a página de login
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
  ?>
  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #20c997;" >
    <div class="container-fluid">
