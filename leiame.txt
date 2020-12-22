@@ -1,0 +1,4 @@
+fazer o controle de versões
+fazer o controle de sessoes
+modificar cookie
+salvar script de banco de dados
