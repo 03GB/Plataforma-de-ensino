@@ -74,21 +74,21 @@
             <div class="col">
               <div class="bg-transparent" style="text-align:center;">
 
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                  <ol class="carousel-indicators">
+              <div id="carouselExampleIndicators" class="carousel slide slider-principal" data-bs-ride="carousel">
+                  <ol class="carousel-indicators slider-principal">
                     <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
                     <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
                     <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
                   </ol>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
+                  <div class="carousel-inner" >
+                    <div class="carousel-item active" class="slider-principal">
                       <img src="./img/img1.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                       <img src="./img/img2.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                      <img src="./img/img1.png" class="d-block w-100" alt="...">
+                      <img src="./img/aulaonline.png" class="d-block w-100" alt="...">
                     </div>
                   </div>
                 </div>

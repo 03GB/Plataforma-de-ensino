@@ -64,37 +64,41 @@
                    <div class="row row-cols-1 row-cols-md-2 g-4">
                  <div class="col">
                   <div class="card">
-                    <img src="../img/banner1.png" class="card-img-top" alt="...">
+                    <img src="../img/aulaonline.png" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Aula Digital</h5>
                       <p class="card-text">Assista suas aulas digitais.</p>
+                      <a href="maestro.php" class="btn" style="background-color:#285e61; color:white"  >Ir para aulas digitais</a>
                     </div>
                   </div>
                  </div>
                  <div class="col">
                   <div class="card">
-                    <img src="../img/banner1.png" class="card-img-top" alt="...">
+                 <a href="../visao/maestro.php"> <img src="../img/maestro.png" class="card-img-top" alt="..."></a>  
                     <div class="card-body">
-                      <h5 class="card-title">Maestro minhas matérias</h5>
+                      <h5 class="card-title">Maestro minhas matérias </h5>
                       <p class="card-text">Acesse todas as suas matérias.</p>
+                      <a href="maestro.php" class="btn" style="background-color:#285e61; color:white"  >Ir para maestro</a>
                     </div>
                   </div>
                  </div>
                  <div class="col">
                   <div class="card">
-                    <img src="../img/banner1.png" class="card-img-top" alt="...">
+                    <img src="../img/livrosdigitais.png" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Livros Digitais</h5>
                       <p class="card-text">Acesse a versão digital dos seus materiais didáticos.</p>
+                      <a href="maestro.php" class="btn" style="background-color:#285e61; color:white"  >Ir para livros</a>
                     </div>
                   </div>
                  </div>
                  <div class="col" >
                   <div class="card">
-                    <img src="../img/banner1.png" class="card-img-top" alt="...">
+                    <img src="../img/perfil.png" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Meu Perfil</h5>
                       <p class="card-text">Acesse seus dados de Perfil.</p>
+                      <a href="maestro.php" class="btn" style="background-color:#285e61; color:white"  >Ir para o perfil</a>
                     </div>
                   </div>
                  </div>
