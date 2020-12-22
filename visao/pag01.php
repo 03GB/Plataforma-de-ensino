@@ -47,9 +47,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
          <div class="col" style="height:50px;">
           <div class="bg-transparent">
 
-          <h4> Olá, João Maurício</h4>
-            joaomauricio000@outlook.com
-
+          <h4> Olá, <?php echo $_SESSION["nickname"]; ?></h4>
+          <?php echo $_SESSION["username"]; ?>
+          
           </div>
          </div>
        </div>

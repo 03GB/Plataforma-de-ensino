@@ -5,17 +5,19 @@ require_once "../_db/Configuracao.inc.php";
 
 // criação das variáveis para controle de acesso
 $username             = "";
+$nickname             = "";
 $password             = "";
 $confirm_password     = "";
 $username_err         = "";
+$nickname_err         = "";
 $password_err         = "";
 $confirm_password_err = "";
 
 // testa se o método utilizado foi o POST
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // valida o nome do usuário
+    // valida o email do usuário
     if(empty(trim($_POST["username"]))){
-        $username_err = "Por favor entre com seu nome de usuário (login).";
+        $username_err = "Por favor entre com seu email (login).";
     } else{
         // prepara a query para execução
         $sql = "SELECT id FROM usuarios WHERE nome = ?";
@@ -46,6 +48,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
+    //valida nickname
+    if(empty(trim($_POST["nickname"]))){
+        $nickname_err = "Por favor entre com o nome.";
+     } else{
+        $nickname = trim($_POST["nickname"]);
+    }
+    
+   
 // validação da senha
 if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9 && A-Z || a-z]{4,50}$/', $_POST["password"])) { 
     $password_err = "A senha deve conter letras, números e entre 4 e 50 caracteres.";
@@ -66,21 +76,24 @@ if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9 && A-Z || a-z]{4,50}$/', $_POST["pa
     }
 
     // checa erros de entrada antes de inserir no bd
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($nickname_err)){
         // prepara a query de inclusão
-        $sql = "INSERT INTO usuarios (nome, password) VALUES (?, ?)";
+        $sql = "INSERT INTO usuarios (nome, password, nickname) VALUES (?, ?, ?)";
         echo "Realizou a preparação <br>";
         var_dump($stmt);
 
         if($stmt = mysqli_prepare($link, $sql)){
             // vincula as variáveis à instrução preparada com parâmetros
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_password, $param_nickname);
 
             // define o parâmetro
             $param_username = $username;
 
             //  cria um hash para a senha
             $param_password = password_hash($password, PASSWORD_DEFAULT);
+
+             // define o parâmetro
+             $param_nickname = $nickname;
 
             // executa a query preparada
             if(mysqli_stmt_execute($stmt)){
@@ -134,6 +147,14 @@ if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9 && A-Z || a-z]{4,50}$/', $_POST["pa
                     <input type="email" placeholder="Email" name="username" class="form-control" value="<?php echo $username; ?>">
                   </label>
                 <span class="help-block"><?php echo $username_err; ?></span>
+            </div>
+
+            <div class="form-group <?php echo (!empty($nickname_err)) ? 'has-error' : ''; ?>">
+                  <label class="label-input" for="">
+                    <i class="far fa-user icon-modify"></i>
+                    <input type="text" placeholder="Nome" name="nickname" class="form-control" value="<?php echo $nickname; ?>">
+                  </label>
+                <span class="help-block"><?php echo $nickname_err; ?></span>
             </div>
                    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
