@@ -119,7 +119,7 @@ if ($result->num_rows > 0) {
 		}
 //**************************************************************************
 } else {
-	echo "Desculpe mas o usuário ou a senha não foram encontrados.<br>Deseja se <a href=\"cadastro.html\">cadastrar</a> ou voltar para a tela de <a href=\"index.html\">login</a>?";
+	echo "Desculpe mas o usuário ou a senha não foram encontrados.<br>Deseja se <a href=\"../visao/registro.php\">cadastrar</a> ou voltar para a tela de <a href=\"../visao/login.php\">login</a>?";
 }
 $conn->close();
 ?>

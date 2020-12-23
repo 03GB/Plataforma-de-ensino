@@ -1,7 +1,11 @@
+<?php
+include("../extensao/header.php");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="estilo.css">
+<link rel="stylesheet" type="text/css" href="../css/estilo_mural.css">
 </head>
 <body>
 	<div class="container">
@@ -17,21 +21,21 @@ $dbname = "registro";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Confere sucesso da conexão
 if ($conn->connect_error) {
-    die("Problemas ao conectar: " . $conn->connect_error);
+    die("<h4>Problemas ao conectar:</h4> " . $conn->connect_error);
 }
 
 $sql = "INSERT INTO `post`(`id_U`, `publicacao`) 
 		VALUES ('".$_SESSION['id']."', '".$_POST["publicacao"]."')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "<br><br><br>Publicação realizada com sucesso!";
+    echo "<br><br><br><h4>Publicação realizada com sucesso!</h4>";
 } else {
     echo "Erro: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();
 ?>
-
+<a href="../visao/mural.php"><h6>Voltar ao mural</h6></a>
 </div>
 </body>
 <html>

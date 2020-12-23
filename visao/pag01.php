@@ -73,11 +73,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                    <div class="row row-cols-1 row-cols-md-2 g-4">
                  <div class="col">
                   <div class="card">
-                    <img src="../img/aulaonline.png" class="card-img-top" alt="...">
+                    <a href="./indisponivel.php"><img src="../img/aulaonline.png" class="card-img-top" alt="..."></a>
                     <div class="card-body">
                       <h5 class="card-title">Aula Digital</h5>
                       <p class="card-text">Assista suas aulas digitais.</p>
-                      <a href="maestro.php" class="btn" style="background-color:#285e61; color:white"  >Ir para aulas digitais</a>
+                      <a href="indisponivel.php" class="btn" style="background-color:#285e61; color:white"  >Ir para aulas digitais</a>
                     </div>
                   </div>
                  </div>
@@ -93,21 +93,21 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                  </div>
                  <div class="col">
                   <div class="card">
-                    <img src="../img/livrosdigitais.png" class="card-img-top" alt="...">
+                    <a href="./indisponivel.php"><img src="../img/livrosdigitais.png" class="card-img-top" alt="..."></a>
                     <div class="card-body">
                       <h5 class="card-title">Livros Digitais</h5>
                       <p class="card-text">Acesse a versão digital dos seus materiais didáticos.</p>
-                      <a href="maestro.php" class="btn" style="background-color:#285e61; color:white"  >Ir para livros</a>
+                      <a href="indisponivel.php" class="btn" style="background-color:#285e61; color:white"  >Ir para livros</a>
                     </div>
                   </div>
                  </div>
                  <div class="col" >
                   <div class="card">
-                    <img src="../img/perfil.png" class="card-img-top" alt="...">
+                    <a href="./perfil.php"><img src="../img/perfil.png" class="card-img-top" alt="..."></a>
                     <div class="card-body">
                       <h5 class="card-title">Meu Perfil</h5>
                       <p class="card-text">Acesse seus dados de Perfil.</p>
-                      <a href="maestro.php" class="btn" style="background-color:#285e61; color:white"  >Ir para o perfil</a>
+                      <a href="./perfil.php" class="btn" style="background-color:#285e61; color:white"  >Ir para o perfil</a>
                     </div>
                   </div>
                  </div>
