@@ -49,14 +49,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     </label>
                     <span class="help-block"></span>
                 </div>
-                
+
                 <div class="form-group">
                  <label class="label-input" for="">
-                        <i class="fas fa-calendar icon-modify"></i>
-                        <input type="number" placeholder="Data e Hora" name="dtRegistro" class="form-control" value="<?php echo $_SESSION["dtRegistro"]; ?>" disabled>
+                        <i class="fas fa-address-book icon-modify"></i>
+                        <input type="text" placeholder="ID avatar" name="avatar" class="form-control" value="<?php echo $_SESSION["idavatar"]; ?>" disabled>
                     </label>
 				</div>
-				
+                
+
 				<div class="form-group">
                  <label class="label-input" for="">
                         <i class="fas fa-phone icon-modify"></i>
