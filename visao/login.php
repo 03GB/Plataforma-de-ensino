@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // valida os dados so usuário
     if(empty($username_err) && empty($password_err)){
         // prepara a query de consulta
-        $sql = "SELECT id, nome, password, nickname FROM usuarios WHERE nome = ?";
+        $sql = "SELECT id, nome, password, nickname, dtRegistro, idavatar, telefone FROM usuarios WHERE nome = ?";
  
         if($stmt = mysqli_prepare($link, $sql)){
             // vincula as variáveis à instrução preparada com parâmetros
@@ -54,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // verifica se o usuário existe, se existir verifica a senha
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     // vincula as variáveis aos resultados
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $nickname);
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $nickname, $dtRegistro, $idavatar, $telefone);
                     // Obtém resultados de um preparado comando e os coloca nas determinadas variáveis
                     if(mysqli_stmt_fetch($stmt)){
                         // testa a senha (c/ alg. Hash)
@@ -67,6 +67,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
                             $_SESSION["nickname"] = $nickname;
+                            $_SESSION["dtRegistro"] = $dtRegistro;
+                            $_SESSION["idavatar"] = $idavatar;
+                            $_SESSION["telefone"] = $telefone;
  
                             // redireciona para a página de boas vindas
                             header("location: pag01.php");

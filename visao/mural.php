@@ -27,17 +27,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 <?php
 
-$servername = "localhost"; //*** dados para acesso local 
-$username = "root";
-$password = "";
-$dbname = "registro";
-
-// Estabelecendo conexão com OO
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Confere sucesso da conexão
-if ($conn->connect_error) {
-    die("Problemas ao conectar: " . $conn->connect_error);
-}
+include("../_db/Configuracao.OO.php");
 
 //verifica a página atual caso seja informada na URL, senão atribui como 1ª página 
     $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1; 
@@ -83,10 +73,10 @@ if ($result->num_rows > 0) {
 	$result = $conn->query($sql);
 	//conta o total de posts feitos 
     $total = $result->num_rows;
-	//calcula o número de páginas arredondando o resultado para cima ---- no maximo 10 posts por pagina 
-    $numPaginas = ceil($total/10);
+	//calcula o número de páginas
+    $numPaginas = ceil($total/50);
 	//variavel para calcular o início da visualização com base na página atual 
-    $inicio = (10*$pagina)-10; 
+    $inicio = (50*$pagina)-50; 
  
     //seleciona os itens por página 
 	

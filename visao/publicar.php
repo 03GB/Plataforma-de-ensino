@@ -12,17 +12,7 @@ include("../extensao/header.php");
 <?php
 session_start(); // Inicia a sessão
 
-$servername = "localhost"; //*** dados para acesso local 
-$username = "root";
-$password = "";
-$dbname = "registro";
-
-// Estabelecendo conexão com OO
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Confere sucesso da conexão
-if ($conn->connect_error) {
-    die("<h4>Problemas ao conectar:</h4> " . $conn->connect_error);
-}
+include("../_db/Configuracao.OO.php");
 
 $sql = "INSERT INTO `post`(`id_U`, `publicacao`) 
 		VALUES ('".$_SESSION['id']."', '".$_POST["publicacao"]."')";

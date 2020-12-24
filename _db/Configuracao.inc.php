@@ -12,10 +12,10 @@ paradigma procedural
 não foi utilizado OO
 */
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-/*
-teste da conexão
-*/
+
+
 if($link === false){
     die("ERRO: Não foi possível conectar ao Banco de Dados. " . mysqli_connect_error());
 }
+
 ?>

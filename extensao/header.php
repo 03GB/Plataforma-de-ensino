@@ -27,6 +27,7 @@
         <a class="navbar-brand" href="pag01.php">Studiyng</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
     data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" id="menu" href="pag01.php">Menu</a>
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarTogglerDemo02" style="background-color:#285e61;margin-top:20px; padding-left: 20px;">
