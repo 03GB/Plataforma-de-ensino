@@ -47,8 +47,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
          <div class="col" style="height:50px;">
           <div class="bg-transparent">
 
-          <h4> Olá, <?php echo $_SESSION["nickname"]; ?></h4>
-          <?php echo $_SESSION["username"]; ?>
+            <h4> Olá, <?php echo $_SESSION["nickname"]; include("./seleciona_avatar.php");?></h4> 
           
           </div>
          </div>
@@ -119,7 +118,38 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </div>
 
 
+<!-- espaço -->
+<div class="container px-4">
+  <div class="row gx-5">
+    <div class="col" style="height:50px;">
+     <div class="bg-transparent"></div>
+    </div>
+  </div>
+</div>
 
+<!-- card Mural -->
+<div class="container px-4">
+  <div class="row gx-5">
+    <div class="col">
+     <div class="" style="text-align:center;">
+
+
+       <div class="col"  >
+        <div class="card">
+          <a href="./mural.php"><img src="../img/mural1.png" class="card-img-top" alt="..." ></a>
+          <div class="card-body">
+            <h5 class="card-title">Mural</h5>
+            <p class="card-text">Acesse o mural da comunidade Studying.</p>
+            <a href="./mural.php" class="btn" style="background-color:#285e61; color:white"  >Ir para o Mural</a>
+          </div>
+        </div>
+       </div>
+
+
+     </div>
+    </div>
+  </div>
+</div>
 
 <!-- espaço -->
 <div class="container px-4">

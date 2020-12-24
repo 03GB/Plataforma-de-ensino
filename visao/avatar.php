@@ -12,49 +12,28 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 require_once "../_db/Configuracao.inc.php";
 
 // cria e inicializa as variáveis com ""
-$new_password = $confirm_password = "";
-$new_password_err = $confirm_password_err = "";
+$idavatar = "";
+
 
 // testa se o método utilizado foi o POST
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-// validação da senha
-if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9 && A-Z || a-z]{4,50}$/', $_POST["new_password"])) { 
-    $new_password_err = "A senha deve conter letras, números e entre 4 e 50 caracteres.";
- } elseif(empty(trim($_POST["new_password"]))){
-    $new_password_err = "Por favor entre com a senha.";
- } else{
-    $new_password = trim($_POST["new_password"]);
-}
-  
+        $idavatar = ($_POST["idavatar"]);
 
-    // valida a confirmação da senha
-    if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Por favor confirme a senha.";
-    } else{
-        $confirm_password = trim($_POST["confirm_password"]);
-        if(empty($new_password_err) && ($new_password != $confirm_password)){
-            $confirm_password_err = "As senhas digitadas são diferentes.";
-        }
-    }
-
-    // checa erros de entrada antes de inserir no bd
-    if(empty($new_password_err) && empty($confirm_password_err)){
-        // prepara a query de atualização
-        $sql = "UPDATE usuarios SET password = ? WHERE id = ?";
+        $sql = "UPDATE usuarios SET idavatar = ? WHERE id = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // vincula as variáveis à instrução preparada com parâmetros
-            mysqli_stmt_bind_param($stmt, "si", $param_password, $param_id);
+            mysqli_stmt_bind_param($stmt, "ii", $param_idavatar, $param_id);
 
-            // cria um hash para a senha
-            $param_password = password_hash($new_password, PASSWORD_DEFAULT);
+            $param_idavatar = $idavatar;
             $param_id = $_SESSION["id"];
+            $_SESSION["idavatar"] = $idavatar;
 
             // executa a query preparada
             if(mysqli_stmt_execute($stmt)){
                
-                header("location: newpassword.php");
+                header("location: avatar.php");
             
             } else{
                 echo "Desculpe! Algo errado aconteceu. Por favor tente novamente.";
@@ -63,7 +42,6 @@ if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9 && A-Z || a-z]{4,50}$/', $_POST["ne
             // fecha a query
             mysqli_stmt_close($stmt);
         }
-    }
 
     // encerra a conexão
     mysqli_close($link);
@@ -92,17 +70,53 @@ if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9 && A-Z || a-z]{4,50}$/', $_POST["ne
             </div>    
             <div class="second-column">
                 <h2 class="title title-second">Avatar</h2>
-
+<br>
+                <div>
+                    <img src="../img/foto1.png" alt="" width="70px">      
+                    <img src="../img/foto2.png" alt="" width="70px"> 
+                    <img src="../img/foto3.png" alt="" width="70px">
+                </div>
+                <div>
+                    <img src="../img/legend1.png" alt="" width="70px">      
+                    <img src="../img/legend2.png" alt="" width="70px"> 
+                    <img src="../img/legend3.png" alt="" width="70px">
+                </div>
+                <div>
+                    <img src="../img/foto4.png" alt="" width="70px">
+                    <img src="../img/foto5.png" alt="" width="70px">
+                    <img src="../img/foto6.png" alt="" width="70px">
+                </div>
+                <div>
+                    <img src="../img/legend4.png" alt="" width="70px">      
+                    <img src="../img/legend5.png" alt="" width="70px"> 
+                    <img src="../img/legend6.png" alt="" width="70px">
+                </div>
+                <div>
+                    <img src="../img/foto7.png" alt="" width="70px">
+                    <img src="../img/foto8.png" alt="" width="70px">
+                    <img src="../img/foto9.png" alt="" width="70px">
+                </div>
+                <div>
+                    <img src="../img/legend7.png" alt="" width="70px">      
+                    <img src="../img/legend8.png" alt="" width="70px"> 
+                    <img src="../img/legend9.png" alt="" width="70px">
+                </div>
+<br><br>
                 <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                    
-                <select>
-<option value="x" style="background-image: url(dad.png); background-repeat: no-repeat; padding-left: 10px;">Valor x</option>
-<option value="y" style="background-image: url(image2.png); background-repeat: no-repeat; padding-left: 10px;">Valor y</option>
-<option value="z" style="background-image: url(image3.png); background-repeat: no-repeat; padding-left: 10px;">Valor z</option>
-</select>
+                <select name="idavatar">
+                    <option value="1">Avatar 1</option>
+                    <option value="2">Avatar 2</option>
+                    <option value="3">Avatar 3</option>
+                    <option value="4">Avatar 4</option>
+                    <option value="5">Avatar 5</option>
+                    <option value="6">Avatar 6</option>
+                    <option value="7">Avatar 7</option>
+                    <option value="8">Avatar 8</option>
+                    <option value="9">Avatar 9</option>
+               </select>
                     
-                   <input type="submit" class="btn btn-primary" value="Editar senha">
-                   <input type="reset" class="btn btn-primary" value="Limpar">
+                   <input type="submit" class="btn btn-primary" value="Adicionar avatar">
      
                 </form>
             </div>
